@@ -10,10 +10,11 @@ import java.util.Properties;
 public class ConnectUtil {
 	public static Connection conn;
 	
-	public static Connection getConnection() throws SQLException, IOException {				
+	public static Connection getConnection() throws SQLException, IOException {	
+		System.out.println("Get that Connection");
 		try{
 			//hide password
-			FileInputStream propinput = new FileInputStream("C:\\Users\\srimh\\OneDrive\\Desktop\\ProEkahi\\ReimbApp\\src\\main\\resources\\config.properties");
+			FileInputStream propinput = new FileInputStream("C:\\Dev\\ReimpApp\\src\\main\\resources\\config.properties");
 			Properties props = new Properties();
 			props.load(propinput);
 		

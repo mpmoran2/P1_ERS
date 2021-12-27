@@ -8,7 +8,7 @@ import persistant.Reimb;
 public interface EmpImp {
 	public Employees viewInfo(int userID);
 	
-	public boolean updateInfo(int userID, String userName, String userPass, String firstName, String lastName);
+	public boolean updateInfo(String userName, String userPass, String firstName, String lastName);
 	public boolean submitReimb(int userID, String category, double amount);
 	public boolean empLogin(String userName, String userPass);
 	

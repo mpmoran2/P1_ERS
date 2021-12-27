@@ -67,7 +67,7 @@ public class EmpDAO implements EmpImp {
 	}
 	
 	//pendinglist get and set for emp
-	public List<Reimb> getPendingByEmp(){
+	public List<Reimb> getPendingByEmp(int userID){
 		return listPendingByEmp;
 	}
 	
@@ -136,8 +136,7 @@ public class EmpDAO implements EmpImp {
 	}
 
 	@Override
-	public boolean updateInfo(int userID, String userName, String userPass, String firstName, String lastName) {
-		this.userID=userID;
+	public boolean updateInfo(String userName, String userPass, String firstName, String lastName) {
 		this.userName=userName;
 		this.userPass=userPass;
 		this.firstName=firstName;
@@ -204,28 +203,13 @@ public class EmpDAO implements EmpImp {
 		}
 		return this.submitVal;
 	}
-	@SuppressWarnings("rawtypes")
+	
+	
 	@Override
 	public List<Reimb> pendingByEmp(int userID){
-		System.out.println("made the list" );
-		this.userID = userID;		
-		
-		List<Reimb> listResolvedByEmp = null;
-		Reimb reimb = null;
-//		boolean loginVal = false;
-		System.out.println("God please");
-		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-			String hql = "SELECT * FROM reimb WHERE status = 'Pending' AND userID =?" ;
-			System.out.println("just work");
-			Query q = session.createQuery(hql);
-			q.setParameter(1, userID);
-			System.out.println("I beg");
-			reimb = (Reimb)q.getResultList();
-			System.out.println("here" + reimb);
-			
-		}catch (Exception e){}
-		return this. listPendingByEmp;
-		
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			return session.createQuery("FROM reimb WHERE userID=" + userID, Reimb.class).list();
+		}		
 	}
 	
 	
@@ -251,6 +235,11 @@ public class EmpDAO implements EmpImp {
 			return this.listResolvedByEmp;
 		}catch (Exception e) {}
 		return this. listResolvedByEmp;
+	}
+
+	public void updateInfo(Employees emp2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

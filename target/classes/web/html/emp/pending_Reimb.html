@@ -3,15 +3,20 @@
 	<head>
 		<title>Pending Reimbursements</title>
 		<!--Link css -->
-		<script src ="/js/employee/pendingByEmp.js"></script >
+		<script src ="/pendingByEmp.js"></script >
 	</head>	
 	<body>
 		<header><h1>Current Pending Reimbursements</h1 ></header>
 		<div>
 			<input type="number" id="userID" placeholder="Employee ID"/>
-        	<button type="button" onclick="pendingByEmp()">View Your Pending Requests</button><hr/>
+        	<button type="button" onclick="pendList()">View Your Pending Requests</button><hr/>
         </div>
-		<div id="responseBod"></div >
+		<div id="responseBod">
+		<ul id="pendBod">
+        </ul></br>
+      
+		</div >
+		
 		
 	</body>
 	

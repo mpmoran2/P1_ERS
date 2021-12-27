@@ -33,7 +33,7 @@ public class LoginCon {
 		logIn = mDao.getLoginVal();
 		if(logIn=true) {
 			System.out.println("going to land");
-			ctx.redirect("/html/mngr/mngr_landing.html");
+			ctx.redirect("/html/mng/mngrMyHome.html");
 		}else {
 			ctx.status(403);
 			System.out.println("Somethin aint adding up");

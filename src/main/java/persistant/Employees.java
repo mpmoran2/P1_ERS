@@ -40,6 +40,7 @@ public class Employees {
 		this.manager = manager;
 	}
 	
+	
 	//for login emp
 	public Employees(String userName, String userPass) {
 		this.userName = userName;
@@ -57,7 +58,7 @@ public class Employees {
 		this.userID = userID;
 	}
 	
-	//update
+	//update and info render
 	public Employees(int userID, String userName, String userPass, String firstName, String lastName) {
 		this.userID = userID;
 		this.userName = userName;

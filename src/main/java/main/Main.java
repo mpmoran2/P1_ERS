@@ -1,6 +1,7 @@
 package main;
 
 import controllers.EmpCon;
+import controllers.EmpCon2;
 
 //import java.io.FileInputStream;
 //import java.io.FileNotFoundException;
@@ -13,6 +14,7 @@ import controllers.EmpCon;
 
 import controllers.LoginCon;
 import controllers.MngCon;
+import controllers.MngCon2;
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 
@@ -56,18 +58,18 @@ public class Main {
 		app.post("/mngLogin", LoginCon.mngLogin);
 		
 		//employee stuff
-		app.get("/emp/pendingReimb", EmpCon.pendingByEmp);
-		app.get("/emp/resolvedReimb", EmpCon.resolvedByEmp);
-		app.get("/emp/view_Me", EmpCon.viewMe);
-		app.post("/emp/view_Me", EmpCon.viewMe);
+		app.get("/emp/pending_Reimb", EmpCon2.getPend);
+		app.get("/emp/resolved_Reimb", EmpCon2.getResolved);
+		app.get("/emp/view_Me", EmpCon2.getOne);
+		app.post("/emp/view_Me", EmpCon2.getOne);
 		app.post("/emp/reimb", EmpCon.submitReimb);
 		app.post("/emp/infoUpdate", EmpCon.updateMe);	
 		
 		//management stuff		
-		app.get("/mngr/allPending", MngCon.displayPending);
-		app.get("/mngr/allResolved", MngCon.displayResolved);
-		app.get("/mngr/allEmp", MngCon.displayAllEmp);
-		app.get("/mngr/reimbByEmp/{userID}", MngCon.displayReimbByEmp);
+		app.get("/mngr/allPending", MngCon2.getPend);
+		app.get("/mngr/allResolved", MngCon2.getResolved);
+		app.get("/mngr/allEmp", MngCon2.getAllEmp);
+		app.get("/mngr/reimbByEmp", MngCon2.getAllReimb);
 		app.post("/mngr/approvals", MngCon.approval);
 		app.post("/mngr/denials", MngCon.denial);
 		

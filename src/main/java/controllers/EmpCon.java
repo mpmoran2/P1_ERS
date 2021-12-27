@@ -16,7 +16,7 @@ public class EmpCon {
 		System.out.println("beep");
 		int userID = 1;
 		eDao.pendingByEmp(userID);
-		List listPendingByEmp = eDao.getPendingByEmp();
+		List listPendingByEmp = eDao.getPendingByEmp(userID);
 		System.out.println(listPendingByEmp);
 		ctx.json(listPendingByEmp);
 	};
